@@ -4,6 +4,7 @@ const HtmlPlugin = require('html-webpack-plugin');
 
 module.exports = [
 	{
+		target: 'node',
 		devtool: 'source-map',
 		entry: {
 			'app': path.join(__dirname, 'src', 'index.jsx')
@@ -34,6 +35,11 @@ module.exports = [
 			extensions: ['.js', '.jsx']
 		},
 		plugins: [
+			new webpack.DefinePlugin({
+				"process.env": {
+					NODE_ENV: JSON.stringify("development")
+				}
+			}),
 			new HtmlPlugin({
 				title: 'Crypto Exchange Exercise',
       			filename: 'index.html'

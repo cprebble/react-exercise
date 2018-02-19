@@ -15,6 +15,7 @@
 		"json"
 	],
 	"author": "Carrie Prebble",
+	"repository": "https://github.com/cprebble/react-exercise",
 	"license": "MIT",
 	"dependencies": {
 		"babel-register": "^6.26.0",

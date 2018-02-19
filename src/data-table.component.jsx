@@ -3,19 +3,18 @@ import PropTypes from 'prop-types';
 
 export default class DataTableComponent extends Component {
 	static propTypes = {
-		data: PropTypes.array,
+		data: PropTypes.array.isRequired,
 		title: PropTypes.string
 	};
 
 	render() {
 		const { data, title } = this.props;
 		const headers = Object.keys(data[0]);
-		const displayData = [data[0]];
 		return (
 			<div style={{
 				padding: 12
 			}}>
-				<div style={{ fontSize: 18, fontWeight: 'bold' }}>{title}</div>
+				<div id="title" style={{ fontSize: 18, fontWeight: 'bold' }}>{title}</div>
 				<table style={{ width: '40%' }}>
 					<thead>
 						<tr>
@@ -25,7 +24,7 @@ export default class DataTableComponent extends Component {
 						</tr>
 					</thead>
 					<tbody>
-						{displayData.map((row, ii) => {
+						{data.map((row, ii) => {
 							const keys = Object.keys(row);
 							return keys.map(k => {
 								const thisVal = row[k];

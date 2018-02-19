@@ -1,15 +1,10 @@
 
 import React from 'react';
 import DataTableComponent from './data-table.component';
-import { getData } from "./utils"
 import Data from '../data.json';
 
 class DataAppComponent extends React.Component {
 	componentDidMount() {
-		// getData().then(data => {
-		// 	console.log("data", data)
-		// 	this.setState({ data })
-		// })
 		this.setState({ data: Data });
 	}
 	render() {

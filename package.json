@@ -47,5 +47,12 @@
 		"react-addons-test-utils": "^15.6.2",
 		"sinon": "^4.3.0",
 		"webpack": "^3.11.0"
+	},
+	"babel": {
+		"presets": [
+			"es2015",
+			"react",
+			"stage-0"
+		]
 	}
 }

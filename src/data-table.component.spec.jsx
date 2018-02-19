@@ -18,7 +18,7 @@ describe('DataTable Component', () => {
 		)).to.equal(true);
 	});
 
-	it.only('renders title', () => {
+	it('renders title', () => {
 		const testcomp = <DataTableComponent title="test data" data={testdata}/>;
 		const wrapper = shallow(testcomp);
 		const page = pageObject(wrapper);

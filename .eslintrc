@@ -24,7 +24,6 @@
 	"extends": ["eslint:recommended", "plugin:react/recommended"],
   
 	"rules": {
-		"react/no-multi-comp": [true, { "ignoreStateless": true }],
 		"no-multiple-empty-lines": ["error", {"max": 2}],
 		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
 		"mocha/no-exclusive-tests": "error",

@@ -21,11 +21,7 @@ module.exports = [
 					include: path.join(__dirname, 'src'),
 					use: [
 						{
-							loader: 'babel-loader',
-							options: {
-								babelrc: false,
-								presets: ['es2015', 'react', 'stage-0'],
-							}
+							loader: 'babel-loader'		
 						}
 					]
 				}
@@ -41,8 +37,8 @@ module.exports = [
 				}
 			}),
 			new HtmlPlugin({
-				title: 'Crypto Exchange Exercise',
-      			filename: 'index.html'
+				title: 'React Exercise',
+				filename: 'index.html'
 			})
 		]
 	}

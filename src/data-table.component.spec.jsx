@@ -6,16 +6,19 @@ import DataTableComponent from './data-table.component';
 import testdata from '../test/testdata';
 
 describe('DataTable Component', () => {
-	it('warns if missing required data', () => {
+	it('throws an error if missing required data', () => {
 		const stub = sinon.stub(console, 'error');
 		const testcomp = <DataTableComponent title="test data"/>;
-		shallow(testcomp);
-		
-		expect(stub.calledOnce).to.equal(true);
-		// console.log("spyy",  stub.args)
-        expect(stub.calledWithExactly(
-			sinon.match('Warning: Failed prop type: The prop `data` is marked as required in `DataTableComponent`')
-		)).to.equal(true);
+		try {
+			shallow(testcomp);
+			assert.fail('shallow wrapper should have failed');
+		} catch(e) {
+			assert.isOk(e);
+			expect(stub.calledOnce).to.equal(true);
+			expect(stub.calledWithExactly(
+				sinon.match('Warning: Failed prop type: The prop `data` is marked as required in `DataTableComponent`')
+			)).to.equal(true);
+		}
 	});
 
 	it('renders title', () => {

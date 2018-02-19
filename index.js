@@ -18,5 +18,5 @@ app.get('*', (req, res) => {
 app.get('/health', (req, res) => res.status(200).json({ status: 'ok' }));
 
 app.listen(PORT, () => {
-	console.log(`Listening on :${PORT}`);
+	console.log(`Listening on :${PORT}`); // eslint-disable-line no-console
 });

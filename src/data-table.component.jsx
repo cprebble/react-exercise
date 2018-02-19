@@ -10,7 +10,6 @@ export default class DataTableComponent extends Component {
 	render() {
 		const { data, title } = this.props;
 		const headers = Object.keys(data[0]);
-		console.log("chart data", headers)
 		const displayData = [data[0]];
 		return (
 			<div style={{
@@ -21,22 +20,25 @@ export default class DataTableComponent extends Component {
 					<thead>
 						<tr>
 							{headers.map((header, ii) => {
-								return <th key={ii}>{header}</th>
+								return <th key={`header${ii}`}>{header}</th>
 							})}
 						</tr>
 					</thead>
 					<tbody>
 						{displayData.map((row, ii) => {
-							let rdisplay = <td>{row}</td>;
-							if (row instanceof Object) {
-								// TODO further render
-								rdisplay = <td>{JSON.stringify(row)}</td>
-							}
-							return (
-								<tr key={ii} style={{ lineHeight: '20px' }}>
-									{rdisplay}
-								</tr>
-							);
+							const keys = Object.keys(row);
+							return keys.map(k => {
+								const thisVal = row[k];
+								let displayedVal = <td>{thisVal}</td>;
+								if (thisVal instanceof Object) {
+									displayedVal = <td>{JSON.stringify(thisVal)}</td>
+								}
+								return (
+									<tr key={`data${ii}${k}`} style={{ lineHeight: '20px' }}>
+										{displayedVal}
+									</tr>
+								);
+							});
 						})}
 					</tbody>
 				</table>

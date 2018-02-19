@@ -1,0 +1,39 @@
+{
+	"parser": "babel-eslint",
+  
+	"env": {
+	  "browser": true,
+	  "node": true,
+	  "es6": true,
+	  "mocha": true
+	},
+  
+	"parserOptions": {
+	  "ecmaVersion": 7,
+	  "sourceType": "module",
+	  "ecmaFeatures": {
+		"jsx": true
+	  }
+	},
+  
+	"plugins": [
+	  "react",
+	  "mocha",
+	  "node"
+	],
+	"extends": ["eslint:recommended", "plugin:react/recommended"],
+  
+	"rules": {
+		"react/no-multi-comp": [true, { "ignoreStateless": true }],
+		"no-multiple-empty-lines": ["error", {"max": 2}],
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+		"mocha/no-exclusive-tests": "error",
+		"node/no-extraneous-import": ["error", { "allowModules": [] }],
+		"node/no-extraneous-require": ["error", { "allowModules": [] }],
+		"node/no-missing-import": ["error", {
+			"allowModules": [],
+			"resolvePaths": ["src"],
+			"tryExtensions": [".js", ".jsx", ".json"]
+		}]
+	}
+  }
